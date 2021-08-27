@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Videos & Audio Tutorial</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.17/mediaelementplayer-legacy.min.css"
+      integrity="sha512-/mTP+VCSG9+D7An+ecpc5S3kD1uHiGl+sdeygFXygXd4NH1dPIGjJIAcfscVGz7g7umbKILDw7EL12A0LTvz5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>HTML Video & Audio Tutorial</h1>
+      <section>
+        <p>
+          Working with Audio and Video in Web Pages. I'm an author, trainer, and
+          a 15‑time Microsoft MVP. As you are learning how to build websites
+          with HTML, CSS, and JavaScript, you'll likely need to be able to work
+          with media of all types. In today's internet, video and audio are more
+          important than ever. In this course, I'll show you how to add media to
+          your own HTML project. Some of the major topics we'll cover include
+          using audio and video tags to include media, explain how you can host
+          media in your own websites, show you how to control media using
+          JavaScript. By the end of the course, you'll understand how audio and
+          video work on the internet and how to access video and audio to
+          present them to your own users. This course is part of the Building
+          Websites with HTML, CSS, and JavaScript Learning Path. It will help
+          you continue to build great websites for your customers. I hope you'll
+          join me in this journey to learn how to use video and audio in your
+          HTML projects in my Working with Audio and Video in Web Pages course,
+          here at Pluralsight.
+        </p>
+      </section>
+      <section>
+        <h2>The Video Tag</h2>
+        <video
+          controls
+          loop
+          src="media/video/9jaflaver_Mark_Angel_Let_US_Share_It_Video.mp4"
+        >
+          Your browser does not support video
+        </video>
+        <div class="player-control-buttons">
+          <div class="player-control">
+            <button id="currentPlayTime"><span>00 / 00 sec</span></button>
+          </div>
+          <div class="player-control">
+            <button id="playButton">Play</button>
+          </div>
+          <div class="player-control">
+            <button id="pauseButton">Pause</button>
+          </div>
+          <div class="player-control">
+            <button id="forwardButton">Fast Forward</button>
+          </div>
+          <div class="player-control">
+            <button id="backButton">Backward</button>
+          </div>
+          <div class="player-control">
+            <button id="stopButton">Stop</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>The Audio Tag</h2>
+        <audio controls src="media/audio/Nathaniel-Bassey-Hallelujah-Amen.mp3">
+          Your browser does not support audio
+        </audio>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.17/mediaelement-and-player.min.js"
+      integrity="sha512-hLCA6qoEOSjwOEIc6xi7p0g6/uW2SAqS7gGZIxfN4jYabdJVsW7ANuUeih/vRrU3nGpf9cnsadaC+W3qoDqIQg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      new MediaElementPlayer("video");
+      new MediaElementPlayer("video");
+
+      const video = document.querySelector("video");
+      const playButton = document.querySelector("#playButton");
+      const currentPlayTime = document.querySelector("#currentPlayTime");
+      const pauseButton = document.querySelector("#pauseButton");
+      const forwardButton = document.querySelector("#forwardButton");
+      const backButton = document.querySelector("#backButton");
+      const stopButton = document.querySelector("#stopButton");
+
+      video.addEventListener("timeupdate", () => {
+        currentPlayTime.textContent = `${Math.floor(
+          video.currentTime
+        )} / ${Math.floor(video.duration)} sec`;
+      });
+
+      //   Video end event
+      video.addEventListener("ended", () => {
+        video.currentTime = 0;
+      });
+
+      //   playButton event
+      playButton.addEventListener("click", () => {
+        console.log(playButton);
+        video.play();
+      });
+
+      //   playButton event
+      playButton.addEventListener("click", () => {
+        console.log(playButton);
+        video.play();
+      });
+
+      //   pauseButton event
+      pauseButton.addEventListener("click", () => {
+        console.log(pauseButton);
+        video.pause();
+      });
+
+      //   forwardButton event
+      forwardButton.addEventListener("click", () => {
+        console.log(forwardButton);
+        currentVideoTime = video.currentTime;
+        video.currentTime = currentVideoTime + 5;
+      });
+
+      //   backButton event
+      backButton.addEventListener("click", () => {
+        console.log(backButton);
+        currentVideoTime = video.currentTime;
+        video.currentTime = currentVideoTime - 5;
+      });
+
+      //   stopButton event
+      stopButton.addEventListener("click", () => {
+        console.log(stopButton);
+        video.pause();
+        video.currentTime = 0;
+      });
+    </script>
+  </body>
+</html>
